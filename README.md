@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/de18xc6i431xnlvg?svg=true)](https://ci.appveyor.com/project/Dirkster99/treelib)
+
 # TreeLib
 This projects produces a
 a ![.Net Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
