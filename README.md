@@ -28,8 +28,7 @@ See TreeLib.BreadthFirst.Traverse.Postorder implementation for:
 * trees with multiple root node (expects IEnumerable&lt;T> root as parameter)
 
 # Tip
-* Read about !(Generic Tree and Linked List Traversal in C#)[http://www.codeducky.org/easy-tree-and-linked-list-traversal-in-c/]
-to better understand why generic traversal methods: 
+* Read about ![Generic Tree and Linked List Traversal in C#](http://www.codeducky.org/easy-tree-and-linked-list-traversal-in-c/) to understand the usefullnes of *Generic* traversal methods.
 
 * Watch the
 ![Binary tree traversal: Preorder, Inorder, Postorder](https://www.youtube.com/watch?v=gm8DUJJhmY4)
