@@ -1,20 +1,11 @@
-﻿namespace TTraversalDemo
+﻿namespace TreeLibNugetDemo
 {
     using System;
     using System.Collections.Generic;
-    using TTraversalDemo.Development;
 
     /// <summary>
-    /// This demo application tests different versions of tree traversal algorithms from:
-    /// 
-    /// Version V1
-    /// - simple and straight (no generics - just iterative code)
-    /// 
-    /// Version V2
-    /// - First devered Generic version without Lazyness.
-    /// 
-    /// TreeLib.* (Version V3)
-    /// - Second an Final derived Generic version with Lazyness.
+    /// This demo application tests different versions of tree traversal algorithms from
+    /// the Nuget  Dirster.TreeLib package (you may have to enable/restore NuGet packaging).
     /// </summary>
     class Program
     {
@@ -40,32 +31,6 @@
         /// <param name="root"></param>
         private static void TestLevelOrder(Node root)
         {
-            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX LevelOrder (Breadth-First)
-            Console.WriteLine("LevelOrderTraversal Tree Traversal V1");
-            LevelOrderV1.LevelOrderTraversal(root);
-
-            Console.WriteLine();
-            Console.WriteLine("Press any key...");
-            Console.ReadKey();
-
-            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX LevelOrder (Breadth-First)
-            Console.WriteLine("LevelOrderTraversal Tree Traversal V2");
-            var lorderitems = LevelOrderV2.LevelOrderTraversal(root, i => i.Children);
-
-            foreach (var item in lorderitems)
-            {
-                int iLevel = item.Item1;
-                Node current = item.Item2;
-
-                Console.WriteLine(string.Format("{0,4} - {1}"
-                    , iLevel, current.GetPath()));
-            }
-
-            Console.WriteLine();
-            Console.WriteLine("Press any key...");
-            Console.ReadKey();
-
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX LevelOrder (Breadth-First)
             Console.WriteLine("LevelOrderTraversal Tree Traversal V3");
             var levorderItems = TreeLib.BreadthFirst.Traverse.LevelOrder(root, i => i.Children);
@@ -76,6 +41,32 @@
                                                              , current.Node.GetPath()));
             }
 
+            Console.WriteLine();
+            Console.WriteLine("Press any key...");
+            Console.ReadKey();
+
+            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PreOrder Traversal (Depth-First)
+            Console.WriteLine("PreOrder (Depth First) Tree Traversal");
+            var items = TreeLib.Depthfirst.Traverse.Preorder(root, i => i.Children);
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.GetPath());
+            }
+            Console.WriteLine();
+            Console.WriteLine("Press any key...");
+            Console.ReadKey();
+
+            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PreOrder Traversal (Depth-First)
+            Console.WriteLine("PreOrder (Depth First) Tree Traversal (Multiple Roots Nodes)");
+
+            var root1 = makeTree(1);
+            var multipleRoots = new List<Node>() { root, root1 }.GetEnumerator();
+
+            items = TreeLib.Depthfirst.Traverse.Preorder(multipleRoots, i => i.Children);
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.GetPath());
+            }
             Console.WriteLine();
             Console.WriteLine("Press any key...");
             Console.ReadKey();
@@ -94,15 +85,8 @@
         {
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PreOrder Traversal (Depth-First)
-            Console.WriteLine("PreOrder (Depth First) Tree Traversal V1");
-            PreOrderV1.Traverse(root);
-            Console.WriteLine();
-            Console.WriteLine("Press any key...");
-            Console.ReadKey();
-
-            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PreOrder Traversal (Depth-First)
-            Console.WriteLine("PreOrder (Depth First) Tree Traversal V2");
-            var items = PreOrderV2.Traverse(root, i => i.Children);
+            Console.WriteLine("PreOrder (Depth First) Tree Traversal");
+            var items = TreeLib.Depthfirst.Traverse.Preorder(root, i => i.Children);
             foreach (var item in items)
             {
                 Console.WriteLine(item.GetPath());
@@ -112,21 +96,10 @@
             Console.ReadKey();
 
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PreOrder Traversal (Depth-First)
-            Console.WriteLine("PreOrder (Depth First) Tree Traversal V3");
-            items = TreeLib.Depthfirst.Traverse.Preorder(root, i => i.Children);
-            foreach (var item in items)
-            {
-                Console.WriteLine(item.GetPath());
-            }
-            Console.WriteLine();
-            Console.WriteLine("Press any key...");
-            Console.ReadKey();
-
-            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PreOrder Traversal (Depth-First)
-            Console.WriteLine("PreOrder (Depth First) Tree Traversal V3 (Multiple Roots Nodes)");
+            Console.WriteLine("PreOrder (Depth First) Tree Traversal (Multiple Roots Nodes)");
 
             var root1 = makeTree(1);
-            var multipleRoots = new List<Node>(){ root, root1}.GetEnumerator();
+            var multipleRoots = new List<Node>() { root, root1 }.GetEnumerator();
 
             items = TreeLib.Depthfirst.Traverse.Preorder(multipleRoots, i => i.Children);
             foreach (var item in items)
@@ -151,27 +124,8 @@
         {
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PostOrder Traversal (Depth-First)
-            Console.WriteLine("(Depth First) PostOrder Tree Traversal V1");
-            PostOrderV1.nonRecursivePostOrder(root);
-            Console.WriteLine();
-            Console.WriteLine("Press any key...");
-            Console.ReadKey();
-
-            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PostOrder Traversal (Depth-First)
-            Console.WriteLine("(Depth First) Post-Order Tree Traversal V2");
-            var items = PostOrderV2.PostOrder(root, i => i.Children);
-
-            foreach (var item in items)
-            {
-                Console.WriteLine(item.GetPath());
-            }
-            Console.WriteLine();
-            Console.WriteLine("Press any key...");
-            Console.ReadKey();
-
-            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PostOrder Traversal (Depth-First)
-            Console.WriteLine("(Depth First) PostOrder Tree Traversal V3");
-            items = TreeLib.Depthfirst.Traverse.PostOrder(root, i => i.Children);
+            Console.WriteLine("(Depth First) PostOrder Tree Traversal");
+            var items = TreeLib.Depthfirst.Traverse.PostOrder(root, i => i.Children);
 
             foreach (var item in items)
             {
@@ -195,7 +149,7 @@
         ///  dfs: efbgchida
         /// </summary>
         /// <returns></returns>
-        private static Node makeTree(int isampleNumber=0)
+        private static Node makeTree(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
 

@@ -6,6 +6,7 @@ ECHO.
 ECHO This script deletes all temporary build files in the .vs folder and the
 ECHO BIN and OBJ folders contained in the following projects
 ECHO.
+ECHO TreeLibNugetDemo
 ECHO TreeLibDemo
 ECHO TreeLib
 ECHO.
@@ -23,13 +24,19 @@ ECHO.
 RMDIR /S /Q .vs
 
 ECHO.
-ECHO Deleting BIN and OBJ Folders in FsContentDialogDemo
+ECHO Deleting BIN and OBJ Folders in TreeLibNugetDemo
+ECHO.
+RMDIR /S /Q "TreeLibNugetDemo\bin"
+RMDIR /S /Q "TreeLibNugetDemo\obj"
+
+ECHO.
+ECHO Deleting BIN and OBJ Folders in TreeLibDemo
 ECHO.
 RMDIR /S /Q "TreeLibDemo\bin"
 RMDIR /S /Q "TreeLibDemo\obj"
 
 ECHO.
-ECHO Deleting BIN and OBJ Folders in MDemo
+ECHO Deleting BIN and OBJ Folders in TreeLib
 ECHO.
 RMDIR /S /Q "TreeLib\bin"
 RMDIR /S /Q "TreeLib\obj"
