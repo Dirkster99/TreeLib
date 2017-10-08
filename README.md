@@ -9,7 +9,8 @@ Library with Generic methods to travere k-nary trees in different orders od trav
 The beauty of this project is that it requires no more than a reference and a simple
 for each loop to implement something as complicated as a Post-Order traversal algorith:
 
-```Console.WriteLine("(Depth First) PostOrder Tree Traversal V3");
+```C#
+Console.WriteLine("(Depth First) PostOrder Tree Traversal V3");
 items = TreeLib.Depthfirst.Traverse.PostOrder(root, i => i.Children);
 
 foreach (var item in items)
