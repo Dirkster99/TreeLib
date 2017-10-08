@@ -1,5 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/de18xc6i431xnlvg?svg=true)](https://ci.appveyor.com/project/Dirkster99/treelib)
 [![Release](https://img.shields.io/github/release/Dirkster99/TreeLib.svg)](https://github.com/Dirkster99/TreeLib/releases/latest)
+[![NuGet](https://img.shields.io/nuget/dt/Dirkster.TreeLib.svg)](http://nuget.org/packages/Dirkster.TreeLib)
 
 # TreeLib
 This project produces a ![.Net Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
