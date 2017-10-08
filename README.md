@@ -2,13 +2,12 @@
 [![Release](https://img.shields.io/github/release/Dirkster99/TreeLib.svg)](https://github.com/Dirkster99/TreeLib/releases/latest)
 
 # TreeLib
-This projects produces
-a ![.Net Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
+This project produces a ![.Net Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
 Library with Generic methods to travere k-nary trees in different orders of traversal.
 
 Implementing something as complicated as a Post-Order traversal algorithm requires just:
 * a project reference,
-* a Linq statement to find each set of children in the tree,
+* a ![LINQ](https://msdn.microsoft.com/en-us/library/bb308959.aspx) statement to find each set of children in the tree,
 * and a simple for each loop to implement the operation on each tree node:
 
 ```C#
@@ -20,12 +19,12 @@ foreach (var item in items)
   Console.WriteLine(item.GetPath());
 }
 ```
-Following this pattern leads to a clear cut seperation of traversal algorithm versus operations
+Following this pattern leads to a clear-cut separation of traversal algorithm versus operations
 performed on each tree node.
 
 The project in this repository contains a demo console project to demo its usage in more detail.
 
-# Suported Generic Traversal Methods
+# Supported Generic Traversal Methods
 
 ## Breadth First
 ### Level Order
@@ -48,7 +47,7 @@ See TreeLib.BreadthFirst.Traverse.Postorder implementation for:
 * trees with multiple root node (expects IEnumerable&lt;T> root as parameter)
 
 # Tip
-* Read about ![Generic Tree and Linked List Traversal in C#](http://www.codeducky.org/easy-tree-and-linked-list-traversal-in-c/) to understand the usefullnes of *Generic* traversal methods.
+* Read about ![Generic Tree and Linked List Traversal in C#](http://www.codeducky.org/easy-tree-and-linked-list-traversal-in-c/) to understand the usefulness of *Generic* traversal methods.
 
 * Watch the
 ![Binary tree traversal: Preorder, Inorder, Postorder](https://www.youtube.com/watch?v=gm8DUJJhmY4)
