@@ -10,11 +10,11 @@ The beauty of this project is that it requires no more than a reference and a si
 for each loop to implement something as complicated as a Post-Order traversal algorith:
 
 ```Console.WriteLine("(Depth First) PostOrder Tree Traversal V3");
-            items = TreeLib.Depthfirst.Traverse.PostOrder(root, i => i.Children);
+items = TreeLib.Depthfirst.Traverse.PostOrder(root, i => i.Children);
 
-            foreach (var item in items)
-            {
-                Console.WriteLine(item.GetPath());
+foreach (var item in items)
+{
+  Console.WriteLine(item.GetPath());
 }
 ```
 The project in this repository contains a demo console project to demo its usage.
