@@ -1,3 +1,7 @@
+source/packages/
+packages/
+00_Release/
+01_Nuget/
 debug/
 release/
 build/
@@ -6,6 +10,8 @@ obj/
 cache/
 log/
 tmp/
+/source/.vs/
+.vs/
 
 *~
 *.lock
@@ -15,4 +21,3 @@ tmp/
 *.sou
 *.suo
 *.sqlite
-Edi/MiniUML.Plugins/MiniUML.Plugins.UmlClassDiagram.dll
