@@ -2,10 +2,21 @@
 [![Release](https://img.shields.io/github/release/Dirkster99/TreeLib.svg)](https://github.com/Dirkster99/TreeLib/releases/latest)
 
 # TreeLib
-This projects produces a
+This projects produces
 a ![.Net Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
-Library with Generic methods to travere k-nary trees (k >=1) in any order required.
+Library with Generic methods to travere k-nary trees in different orders od traversal.
 
+The beauty of this project is that it requires no more than a reference and a simple
+for each loop to implement something as complicated as a Post-Order traversal algorith:
+
+```Console.WriteLine("(Depth First) PostOrder Tree Traversal V3");
+            items = TreeLib.Depthfirst.Traverse.PostOrder(root, i => i.Children);
+
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.GetPath());
+}
+```
 The project in this repository contains a demo console project to demo its usage.
 
 # Suported Generic Traversal Methods
