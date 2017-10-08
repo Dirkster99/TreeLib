@@ -4,10 +4,12 @@
 # TreeLib
 This projects produces
 a ![.Net Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
-Library with Generic methods to travere k-nary trees in different orders od traversal.
+Library with Generic methods to travere k-nary trees in different orders of traversal.
 
-The beauty of this project is that it requires no more than a reference and a simple
-for each loop to implement something as complicated as a Post-Order traversal algorith:
+Implementing something as complicated as a Post-Order traversal algorithm requires just:
+* a project reference,
+* a Linq statement to find each set of children in the tree,
+* and a simple for each loop to implement the operation on each tree node:
 
 ```C#
 Console.WriteLine("(Depth First) PostOrder Tree Traversal V3");
@@ -18,7 +20,10 @@ foreach (var item in items)
   Console.WriteLine(item.GetPath());
 }
 ```
-The project in this repository contains a demo console project to demo its usage.
+Following this pattern leads to a clear cut seperation of traversal algorithm versus operations
+performed on each tree node.
+
+The project in this repository contains a demo console project to demo its usage in more detail.
 
 # Suported Generic Traversal Methods
 
