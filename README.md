@@ -19,9 +19,9 @@ foreach (var item in items)
   Console.WriteLine(item.GetPath());
 }
 ```
-This pattern leads to a clear-cut separation of the:
-* traversal algorithm an the
-* operations performed on each tree node (e.g.: `Console.WriteLine(item.GetPath());`).
+This pattern leads to a clear-cut separation of:
+* the traversal algorithm and
+* the operations performed on each tree node (e.g.: `Console.WriteLine(item.GetPath());`).
 
 The project in this repository contains a demo console project to demo its usage in more detail.
 
