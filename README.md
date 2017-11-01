@@ -51,7 +51,7 @@ See TreeLib.BreadthFirst.Traverse.Postorder implementation for:
 # Tip
 * Read about ![Generic Tree and Linked List Traversal in C#](http://www.codeducky.org/easy-tree-and-linked-list-traversal-in-c/) to understand the usefulness of *Generic* traversal methods.
 
-* Watch the
+* Watch the <a href="https://www.youtube.com/watch?v=gm8DUJJhmY4">Binary tree traversal: Preorder, Inorder, Postorder</a> 
 ![Binary tree traversal: Preorder, Inorder, Postorder](https://www.youtube.com/watch?v=gm8DUJJhmY4)
 video to better understand what is what (and why these Traversal Order Names make some sense):
 
