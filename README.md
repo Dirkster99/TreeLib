@@ -3,7 +3,7 @@
 [![NuGet](https://img.shields.io/nuget/dt/Dirkster.TreeLib.svg)](http://nuget.org/packages/Dirkster.TreeLib)
 
 # TreeLib
-This project produces a <a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard>.Net Standard</a>
+This project produces a <a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard">.Net Standard</a>
 Library with Generic methods to traverse k-nary trees in different orders of traversal.
 
 Implementing something as complicated as a Post-Order traversal algorithm requires just:
