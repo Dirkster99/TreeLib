@@ -3,12 +3,12 @@
 [![NuGet](https://img.shields.io/nuget/dt/Dirkster.TreeLib.svg)](http://nuget.org/packages/Dirkster.TreeLib)
 
 # TreeLib
-This project produces a ![.Net Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
+This project produces a <a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard">.Net Standard</a>
 Library with Generic methods to traverse k-nary trees in different orders of traversal.
 
 Implementing something as complicated as a Post-Order traversal algorithm requires just:
 * a project reference,
-* a ![LINQ](https://msdn.microsoft.com/en-us/library/bb308959.aspx) statement to find each set of children in the tree,
+* a <a href="https://msdn.microsoft.com/en-us/library/bb308959.aspx">LINQ</a> statement to find each set of children in the tree,
 * and a simple for each loop to implement the operation on each tree node:
 
 ```C#
@@ -49,10 +49,8 @@ See TreeLib.BreadthFirst.Traverse.Postorder implementation for:
 * trees with multiple root node (expects IEnumerable&lt;T> root as parameter)
 
 # Tip
-* Read about ![Generic Tree and Linked List Traversal in C#](http://www.codeducky.org/easy-tree-and-linked-list-traversal-in-c/) to understand the usefulness of *Generic* traversal methods.
+* Read about <a href="http://www.codeducky.org/easy-tree-and-linked-list-traversal-in-c/">Generic Tree and Linked List Traversal in C#</a> to understand the usefulness of *Generic* traversal methods.
 
-* Watch the
-![Binary tree traversal: Preorder, Inorder, Postorder](https://www.youtube.com/watch?v=gm8DUJJhmY4)
-video to better understand what is what (and why these Traversal Order Names make some sense):
+* Watch the <a href="https://www.youtube.com/watch?v=gm8DUJJhmY4">Binary tree traversal: Preorder, Inorder, Postorder</a> video to better understand what is what (and why these Traversal Order Names make some sense):
 
 * Look into data structure books online ![Introduction to Trees, Binary Search Trees](https://cathyatseneca.gitbooks.io/data-structures-and-algorithms/introduction_to_trees,_binary_search_trees/definitions.html) or offline *![Algorithms](http://algs4.cs.princeton.edu/home/)* by Robert Sedgewick and Kevin Wayne, if you still need more background on tree structures 
