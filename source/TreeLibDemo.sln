@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeLibDemo", "TreeLibDemo\TreeLibDemo.csproj", "{45414A0F-D85D-435F-95E8-E7FD6BA2716F}"
 EndProject
@@ -8,7 +8,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeLib", "TreeLib\TreeLib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeLibNugetDemo", "TreeLibNugetDemo\TreeLibNugetDemo.csproj", "{607B4973-E3DB-4071-83C6-DDF301D39A32}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{A23BD0CF-4F74-42BA-B89A-141C0D75D3A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeLibNet", "TreeLibNet\TreeLibNet.csproj", "{882E7E61-8000-4396-9067-0A5B25258BD4}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Shared\Shared.projitems*{882e7e61-8000-4396-9067-0a5b25258bd4}*SharedItemsImports = 4
+		Shared\Shared.projitems*{a23bd0cf-4f74-42ba-b89a-141c0d75d3a1}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -26,6 +34,10 @@ Global
 		{607B4973-E3DB-4071-83C6-DDF301D39A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{607B4973-E3DB-4071-83C6-DDF301D39A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{607B4973-E3DB-4071-83C6-DDF301D39A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{882E7E61-8000-4396-9067-0A5B25258BD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{882E7E61-8000-4396-9067-0A5B25258BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{882E7E61-8000-4396-9067-0A5B25258BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{882E7E61-8000-4396-9067-0A5B25258BD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

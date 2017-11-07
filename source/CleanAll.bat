@@ -9,6 +9,7 @@ ECHO.
 ECHO TreeLibNugetDemo
 ECHO TreeLibDemo
 ECHO TreeLib
+ECHO TreeLibNet
 ECHO.
 REM Ask the user if hes really sure to continue beyond this point XXXXXXXX
 set /p choice=Are you sure to continue (Y/N)?
@@ -40,6 +41,12 @@ ECHO Deleting BIN and OBJ Folders in TreeLib
 ECHO.
 RMDIR /S /Q "TreeLib\bin"
 RMDIR /S /Q "TreeLib\obj"
+
+ECHO.
+ECHO Deleting BIN and OBJ Folders in TreeLibNet
+ECHO.
+RMDIR /S /Q "TreeLibNet\bin"
+RMDIR /S /Q "TreeLibNet\obj"
 
 PAUSE
 
