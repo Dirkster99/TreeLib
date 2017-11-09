@@ -4,7 +4,7 @@
     <Description>This library contains Generic algorithm implementations for tree traversals, such as, LevelOrder, PreOrder, and PostOrder.</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard1.6</TargetFramework>
     <PackageId>Dirkster.TreeLib</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
     <Authors>Dirk Bahle</Authors>
@@ -13,6 +13,8 @@
     <PackageReleaseNotes>First release</PackageReleaseNotes>
     <Copyright>Copyright 2017 (c) Dirk Bahle. All rights reserved.</Copyright>
     <PackageTags>generic tree traversal method LevelOrder PreOrder PostOrder</PackageTags>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

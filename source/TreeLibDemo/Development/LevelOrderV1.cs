@@ -13,7 +13,7 @@
         ///
         /// Levelorder traversal implementation is very similar
         /// to the preorder implementation, with the most significant difference
-        /// that now the <seealso cref="Queue{T}"/> is used instead of a
+        /// that the <seealso cref="Queue{T}"/> is used instead of a
         /// <seealso cref="Stack{T}"/>.
         /// </summary>
         /// <param name="solutionRoot"></param>

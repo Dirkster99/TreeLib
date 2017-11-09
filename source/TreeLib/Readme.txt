@@ -6,13 +6,13 @@ Handling tree structured data in C#/.Net often requires us to traverse (visit)
 each node (and their children) in a certain order.
 
 A store (serialize) and restore (deserialize) algorithm usually requires a
-PreOrder traversal from the root node(s) down to the bottom, in which, each
-node is visited exactly once.
+LevelOrder or PreOrder traversal from the root node(s) down to the bottom,
+in which, each node is visited exactly once.
 
 Other algorithms, that require use to compute a value from the leaf up to the root
 may require a PostOrder traversal. This solution contains a short overview on this
 topic (see below) and Generic algorithms that can be used on any tree (be it binary
-or n-ary - each node can have at most 2 children or n children).
+or n-ary - each node can have n children with any n > 0).
 
 Classification
 --------------

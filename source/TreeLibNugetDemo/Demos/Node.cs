@@ -1,4 +1,4 @@
-﻿namespace TreeLibNugetDemo
+﻿namespace TreeLibNugetDemo.Demos
 {
     using System.Collections.Generic;
 

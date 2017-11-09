@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeLibDemo", "TreeLibDemo\TreeLibDemo.csproj", "{45414A0F-D85D-435F-95E8-E7FD6BA2716F}"
 EndProject
@@ -11,6 +11,8 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{A23BD0CF-4F74-42BA-B89A-141C0D75D3A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeLibNet", "TreeLibNet\TreeLibNet.csproj", "{882E7E61-8000-4396-9067-0A5B25258BD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{258E5C47-C38C-4B61-ABEE-A83240383503}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -41,6 +43,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7768B30A-FD1C-4994-97DD-C06F959FBE21} = {258E5C47-C38C-4B61-ABEE-A83240383503}
+		{A23BD0CF-4F74-42BA-B89A-141C0D75D3A1} = {258E5C47-C38C-4B61-ABEE-A83240383503}
+		{882E7E61-8000-4396-9067-0A5B25258BD4} = {258E5C47-C38C-4B61-ABEE-A83240383503}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15B61454-7140-4B65-B517-5C3C0E97B683}

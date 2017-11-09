@@ -9,8 +9,11 @@
     <Import_RootNamespace>Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BreadthFirst\LevelOrder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BreadthFirst\TraverseLevelOrder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BreadthFirst\TraverseLevelOrderEnumerableRoot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Depthfirst\PostOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Depthfirst\PreOrder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Depthfirst\TraversePostOrder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Depthfirst\TraversePostOrderEnumerableRoot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Depthfirst\TraversePreorder.cs" />
