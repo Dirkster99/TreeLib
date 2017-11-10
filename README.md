@@ -32,8 +32,8 @@ The project in this repository contains a demo console project to demo its usage
 ### Level Order
 See TreeLib.BreadthFirst.Traverse.LevelOrder implementation for:
 
-* trees with 1 root (expects &lt;T> root as parameter)
-* trees with multiple root node (expects IEnumerable&lt;T> root as parameter)
+* <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/Shared/BreadthFirst/TraverseLevelOrder.cs">Trees with 1 root</a> (expects &lt;T&gt; root item as parameter)
+* <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/Shared/BreadthFirst/TraverseLevelOrderEnumerableRoot.cs">Trees with multiple root node</a> (expects an IEnumerable&lt;T&gt; root item as parameter)
 * <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/Shared/BreadthFirst/LevelOrder.cs">Generic Level-Order</a> function and <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/TreeLibNugetDemo/Program.cs">DemoDirectoryTreeTraversal</a>
 
 ## Depth First
