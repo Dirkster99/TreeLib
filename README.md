@@ -34,6 +34,7 @@ See TreeLib.BreadthFirst.Traverse.LevelOrder implementation for:
 
 * trees with 1 root (expects &lt;T> root as parameter)
 * trees with multiple root node (expects IEnumerable&lt;T> root as parameter)
+* <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/Shared/BreadthFirst/LevelOrder.cs">Generic Level Order</a> function and <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/TreeLibNugetDemo/Program.cs">DemoDirectoryTreeTraversal</a>
 
 ## Depth First
 ### PreOrder
