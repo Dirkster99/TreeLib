@@ -34,7 +34,7 @@ See TreeLib.BreadthFirst.Traverse.LevelOrder implementation for:
 
 * trees with 1 root (expects &lt;T> root as parameter)
 * trees with multiple root node (expects IEnumerable&lt;T> root as parameter)
-* <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/Shared/BreadthFirst/LevelOrder.cs">Generic Level Order</a> function and <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/TreeLibNugetDemo/Program.cs">DemoDirectoryTreeTraversal</a>
+* <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/Shared/BreadthFirst/LevelOrder.cs">Generic Level-Order</a> function and <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/TreeLibNugetDemo/Program.cs">DemoDirectoryTreeTraversal</a>
 
 ## Depth First
 ### PreOrder
@@ -42,12 +42,14 @@ See TreeLib.BreadthFirst.Traverse.PreOrder implementation for:
 
 * trees with 1 root (expects &lt;T> root as parameter)
 * trees with multiple root node (expects IEnumerable&lt;T> root as parameter)
+* <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/Shared/Depthfirst/PreOrder.cs">Generic Pre-Order</a> function and <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/TreeLibNugetDemo/Program.cs">DemoDirectoryTreeTraversal</a>
 
 ### Postorder
 See TreeLib.BreadthFirst.Traverse.Postorder implementation for:
 
 * trees with 1 root (expects &lt;T> root as parameter)
 * trees with multiple root node (expects IEnumerable&lt;T> root as parameter)
+* <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/Shared/Depthfirst/PostOrder.cs">Generic Post-Order</a> function and <a href="https://github.com/Dirkster99/TreeLib/blob/master/source/TreeLibNugetDemo/Program.cs">DemoDirectoryTreeTraversal</a>
 
 # Tip
 * Read about <a href="http://www.codeducky.org/easy-tree-and-linked-list-traversal-in-c/">Generic Tree and Linked List Traversal in C#</a> to understand the usefulness of *Generic* traversal methods.
