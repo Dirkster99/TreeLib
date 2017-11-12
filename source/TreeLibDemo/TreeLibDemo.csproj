@@ -55,9 +55,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TreeLib\TreeLib.csproj">
-      <Project>{7768b30a-fd1c-4994-97dd-c06f959fbe21}</Project>
-      <Name>TreeLib</Name>
+    <ProjectReference Include="..\TreeLibNet\TreeLibNet.csproj">
+      <Project>{882e7e61-8000-4396-9067-0a5b25258bd4}</Project>
+      <Name>TreeLibNet</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
