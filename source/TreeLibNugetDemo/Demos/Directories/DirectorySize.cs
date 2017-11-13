@@ -6,7 +6,7 @@
 
     /// <summary>
     /// Demonstrates a directory traversal method build on to the Generic&lt;T, TResult>
-    /// class implementation. This implementation does SUPPORTS EXCEPTION handling
+    /// class implementation. This implementation SUPPORTS EXCEPTION handling
     /// - which can be verified here.
     /// 
     /// See (see <seealso cref="DirSizeWoException"/> class for an IEnumerable/Yield
