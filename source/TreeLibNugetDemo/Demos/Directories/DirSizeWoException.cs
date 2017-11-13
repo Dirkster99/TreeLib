@@ -5,7 +5,7 @@
 
     /// <summary>
     /// Demonstrates a directory traversal method build on to the IEnumerable/Yield
-    /// implementation. This implementation does not support exception handling
+    /// implementation. This implementation does NOT SUPPORT exception handling
     /// - which can be verified here.
     /// 
     /// See (see <seealso cref="DirectorySize"/> class for a Generic implementation
