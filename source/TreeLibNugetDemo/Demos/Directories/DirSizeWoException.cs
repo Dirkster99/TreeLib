@@ -33,7 +33,7 @@
             if (string.IsNullOrEmpty(path) == true)
                 return;
 
-            if (path.Length == 2)  // Change 'C:' into 'C:\' to amke sure its valid
+            if (path.Length == 2)  // Change 'C:' into 'C:\' to make sure its a valid path
             {
                 if (path[1] == ':')
                     path += '\\';
