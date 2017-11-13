@@ -6,6 +6,8 @@
 This project produces a <a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard">.Net Standard</a>
 Library with Generic methods to traverse k-nary trees in different orders of traversal.
 
+Review the demo projects in this solution and the <a href="https://github.com/Dirkster99/FilterTreeView">WPF FilterTreeView</a> sample application to learn more details.
+
 Implementing something as complicated as a Post-Order traversal algorithm requires just:
 * a project reference,
 * a <a href="https://msdn.microsoft.com/en-us/library/bb308959.aspx">LINQ</a> statement to find each set of children in the tree,
