@@ -4,7 +4,7 @@
 
 # TreeLib
 This project produces a <a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard">.Net Standard</a>
-Library with Generic methods to traverse k-nary trees in different orders of traversal.
+Library with Generic methods to traverse k-ary trees in different orders (Post, Pre, Level) of traversal.
 
 Review demo projects:
 * in this solution,
