@@ -1,8 +1,8 @@
-﻿namespace TTraversalDemo
+﻿namespace TreeLibDemoLib
 {
     using System.Collections.Generic;
 
-    class Node
+    public class Node
     {
         public string Id;
         public List<Node> Children;

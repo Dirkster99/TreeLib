@@ -1,4 +1,4 @@
-﻿namespace TTraversalDemo.Development
+﻿namespace TreeLibDemoLib.Development
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@
     /// Provides a fist generic implementation that traverses a tree in (Depth-First)
     /// PreOrder Fashion.
     /// </summary>
-    internal static class PreOrderV2
+    public static class PreOrderV2
     {
         /// <summary>
         /// Provides a Generic implementaion for a DepthFirst (Pre-Order)

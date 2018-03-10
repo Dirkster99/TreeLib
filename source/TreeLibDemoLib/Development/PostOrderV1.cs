@@ -1,4 +1,4 @@
-﻿namespace TTraversalDemo.Development
+﻿namespace TreeLibDemoLib.Development
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -8,32 +8,36 @@
     /// traversal algorithm as published by Dave Remy in his 2010 RemLog blog at:
     /// https://blogs.msdn.microsoft.com/daveremy/2010/03/16/non-recursive-post-order-depth-first-traversal-in-c/
     /// </summary>
-    static class PostOrderV1
+    public static class PostOrderV1
     {
-        public static void nonRecursivePostOrder(Node root)
+        public static List<Node> Traverse(Node root)
         {
+            List<Node> ret = new List<Node>();
             var toVisit = new Stack<Node>();
             var visitedAncestors = new Stack<Node>();
 
             toVisit.Push(root);
             while (toVisit.Count > 0)
             {
-                var node = toVisit.Peek();
-                if (node.Children.Count > 0)
+                var current = toVisit.Peek();
+                if (current.Children.Count > 0)
                 {
-                    if (PeekOrDefault(visitedAncestors) != node)
+                    if (PeekOrDefault(visitedAncestors) != current)
                     {
-                        visitedAncestors.Push(node);
-                        PushReverse(toVisit, node.Children);
+                        visitedAncestors.Push(current);
+                        PushReverse(toVisit, current.Children);
                         continue;
                     }
 
                     visitedAncestors.Pop();
                 }
 
-                System.Console.WriteLine(node.GetPath());     // Process the node
+                ret.Add(current);
+                System.Console.WriteLine(current.GetPath());     // Process the node
                 toVisit.Pop();
             }
+
+            return ret;
         }
 
         /// <summary>

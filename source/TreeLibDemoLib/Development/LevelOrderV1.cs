@@ -1,11 +1,11 @@
-﻿namespace TTraversalDemo.Development
+﻿namespace TreeLibDemoLib.Development
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using TTraversalDemo;
+    using TreeLibDemoLib;
 
-    static class LevelOrderV1
+    static public class LevelOrderV1
     {
         /// <summary>
         /// http://urosv.blogspot.de/2011/04/iterative-binary-tree-traversal.html
@@ -17,8 +17,9 @@
         /// <seealso cref="Stack{T}"/>.
         /// </summary>
         /// <param name="solutionRoot"></param>
-        public static void LevelOrderTraversal(Node root)
+        public static List<Node> Traverse(Node root)
         {
+            List<Node> ret = new List<Node>();
             Queue<Tuple<int, Node>> queue = new Queue<Tuple<int, Node>>();
 
             if (root != null)
@@ -30,12 +31,14 @@
                 int iLevel = queueItem.Item1;
                 Node current = queueItem.Item2;
 
-                Console.WriteLine(string.Format("{0,4} - {1}"
-                    , iLevel, current.GetPath()));
+                ret.Add(current);
+                Console.WriteLine(string.Format("{0,4} - {1}", iLevel, current.GetPath()));
 
                 foreach (var item in current.Children)
                     queue.Enqueue(new Tuple<int, Node>(iLevel + 1, item));
             }
+
+            return ret;
         }
     }
 }

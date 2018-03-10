@@ -1,10 +1,10 @@
-﻿namespace TTraversalDemo.Development
+﻿namespace TreeLibDemoLib.Development
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    static class LevelOrderV2
+    public static class LevelOrderV2
     {
         /// <summary>
         /// http://urosv.blogspot.de/2011/04/iterative-binary-tree-traversal.html
@@ -16,7 +16,7 @@
         /// <seealso cref="Stack{T}"/>.
         /// </summary>
         /// <param name="solutionRoot"></param>
-        public static IEnumerable<Tuple<int, T>> LevelOrderTraversal<T>(
+        public static IEnumerable<Tuple<int, T>> Traverse<T>(
             T root
           , Func<T, IEnumerable<T>> children)
         {

@@ -2,7 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using TTraversalDemo.Development;
+    using TreeLibDemoLib;
+    using TreeLibDemoLib.Development;
 
     /// <summary>
     /// This demo application tests different versions of tree traversal algorithms from:
@@ -43,7 +44,7 @@
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX LevelOrder (Breadth-First)
             Console.WriteLine("LevelOrderTraversal Tree Traversal V1");
-            LevelOrderV1.LevelOrderTraversal(root);
+            LevelOrderV1.Traverse(root);
 
             Console.WriteLine();
             Console.WriteLine("Press any key...");
@@ -51,7 +52,7 @@
 
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX LevelOrder (Breadth-First)
             Console.WriteLine("LevelOrderTraversal Tree Traversal V2");
-            var lorderitems = LevelOrderV2.LevelOrderTraversal(root, i => i.Children);
+            var lorderitems = LevelOrderV2.Traverse(root, i => i.Children);
 
             foreach (var item in lorderitems)
             {
@@ -152,14 +153,14 @@
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PostOrder Traversal (Depth-First)
             Console.WriteLine("(Depth First) PostOrder Tree Traversal V1");
-            PostOrderV1.nonRecursivePostOrder(root);
+            PostOrderV1.Traverse(root);
             Console.WriteLine();
             Console.WriteLine("Press any key...");
             Console.ReadKey();
 
             // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PostOrder Traversal (Depth-First)
             Console.WriteLine("(Depth First) Post-Order Tree Traversal V2");
-            var items = PostOrderV2.PostOrder(root, i => i.Children);
+            var items = PostOrderV2.Traverse(root, i => i.Children);
 
             foreach (var item in items)
             {

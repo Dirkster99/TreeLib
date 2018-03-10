@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeLibDemo", "TreeLibDemo\TreeLibDemo.csproj", "{45414A0F-D85D-435F-95E8-E7FD6BA2716F}"
 EndProject
@@ -13,6 +13,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeLibNet", "TreeLibNet\TreeLibNet.csproj", "{882E7E61-8000-4396-9067-0A5B25258BD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{258E5C47-C38C-4B61-ABEE-A83240383503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeLibNugetUnitTests", "TreeLibNugetUnitTests\TreeLibNugetUnitTests.csproj", "{7ECB4D90-C421-4500-817E-322281D5061F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeLibDemoLib", "TreeLibDemoLib\TreeLibDemoLib.csproj", "{A2328C9B-04EC-4B79-A6F3-5A0B3FD7D3AC}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -40,6 +44,14 @@ Global
 		{882E7E61-8000-4396-9067-0A5B25258BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{882E7E61-8000-4396-9067-0A5B25258BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{882E7E61-8000-4396-9067-0A5B25258BD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ECB4D90-C421-4500-817E-322281D5061F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECB4D90-C421-4500-817E-322281D5061F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECB4D90-C421-4500-817E-322281D5061F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECB4D90-C421-4500-817E-322281D5061F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2328C9B-04EC-4B79-A6F3-5A0B3FD7D3AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2328C9B-04EC-4B79-A6F3-5A0B3FD7D3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2328C9B-04EC-4B79-A6F3-5A0B3FD7D3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2328C9B-04EC-4B79-A6F3-5A0B3FD7D3AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

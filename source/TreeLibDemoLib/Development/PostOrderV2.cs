@@ -1,4 +1,4 @@
-﻿namespace TTraversalDemo.Development
+﻿namespace TreeLibDemoLib.Development
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@
     /// 2) With the "Generic Tree and Linked List Traversal in C#" post by Mike Adelson
     ///    http://www.codeducky.org/easy-tree-and-linked-list-traversal-in-c/
     /// </summary>
-    static class PostOrderV2
+    static public class PostOrderV2
     {
         /// <summary>
         /// Provides a Generic implementaion for a DepthFirst (Post-Order)
@@ -24,7 +24,7 @@
         /// <param name="root"></param>
         /// <param name="children"></param>
         /// <returns></returns>
-        public static IEnumerable<T> PostOrder<T>(
+        public static IEnumerable<T> Traverse<T>(
             T root
           , Func<T, IEnumerable<T>> children)
         {
