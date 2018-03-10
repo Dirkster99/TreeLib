@@ -5,7 +5,7 @@
 
     /// <summary>
     /// Demonstrates a directory traversal method build on to the IEnumerable/Yield
-    /// implementation. This implementation does not support exception handling
+    /// implementation. This implementation does NOT SUPPORT exception handling
     /// - which can be verified here.
     /// 
     /// See (see <seealso cref="DirectorySize"/> class for a Generic implementation
@@ -33,7 +33,7 @@
             if (string.IsNullOrEmpty(path) == true)
                 return;
 
-            if (path.Length == 2)  // Change 'C:' into 'C:\' to amke sure its valid
+            if (path.Length == 2)  // Change 'C:' into 'C:\' to make sure its a valid path
             {
                 if (path[1] == ':')
                     path += '\\';

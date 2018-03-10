@@ -6,7 +6,7 @@
 
     /// <summary>
     /// Demonstrates a directory traversal method build on to the Generic&lt;T, TResult>
-    /// class implementation. This implementation does SUPPORTS EXCEPTION handling
+    /// class implementation. This implementation SUPPORTS EXCEPTION handling
     /// - which can be verified here.
     /// 
     /// See (see <seealso cref="DirSizeWoException"/> class for an IEnumerable/Yield
@@ -64,7 +64,7 @@
             if (string.IsNullOrEmpty(path) == true)
                 return;
 
-            if (path.Length == 2)  // Change 'C:' into 'C:\' to amke sure its valid
+            if (path.Length == 2)  // Change 'C:' into 'C:\' to make sure its a valid path
             {
                 if (path[1] == ':')
                     path += '\\';
