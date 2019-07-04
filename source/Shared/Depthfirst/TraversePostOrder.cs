@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     /// <summary>
     /// Developed out of the combined posts
@@ -40,6 +39,14 @@
             return PostOrderIterator(root, children);
         }
 
+        /// <summary>
+        /// Implements a state keeping class that can be used in a traversal algorithm
+        /// to decide whether the tree should be traversed:
+        /// - down (towards children of a node)
+        /// - the node itself should be visited or whether the
+        /// - parents of the node should be visited.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
         class VisitElement<T> : IDisposable
         {
             #region fields
