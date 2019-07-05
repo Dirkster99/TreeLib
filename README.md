@@ -7,7 +7,7 @@ This project provides a:
 - <a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard">.Net Standard</a> Library (1.4, 1.6, 2.0) or a
 - .Net framework 4.0 Library
 
-with Generic methods to traverse k-ary trees in different orders (Post, Pre, Level) of traversal. This implementation includes scalable algorithms that return 'IEnumerable<T>' to make parsing large tree structures a piece of cake, as well, as [Generic Exception handling](https://github.com/Dirkster99/TreeLib/blob/adb9145b9c5baaf0ee8bd6f5fe5982354d962dc2/source/TreeLibNugetDemo/Demos/Directories/DirectorySize.cs#L85-#L86) to ensure that traversal algorithms complete despite unexpected errors on some nodes.
+with Generic methods to traverse k-ary trees in different orders (Post-Order, Pre-Order, Level-Order) of traversal. This implementation includes scalable algorithms that return 'IEnumerable<T>' to make parsing large tree structures a piece of cake, as well, as [Generic Exception handling](https://github.com/Dirkster99/TreeLib/blob/adb9145b9c5baaf0ee8bd6f5fe5982354d962dc2/source/TreeLibNugetDemo/Demos/Directories/DirectorySize.cs#L85-#L86) to ensure that traversal algorithms complete despite unexpected errors on some nodes.
 
 Review demo projects:
 * in this solution,
