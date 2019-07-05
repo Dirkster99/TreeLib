@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     /// <summary>
     /// Developed out of the combined posts
@@ -40,131 +39,183 @@
             return PostOrderIterator(root, children);
         }
 
+        /// <summary>
+        /// Implements a state keeping class that can be used in a traversal algorithm
+        /// to decide whether the tree should be traversed:
+        /// - down (towards children of a node)
+        /// - the node itself should be visited or whether the
+        /// - parents of the node should be visited.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        class VisitElement<T> : IDisposable
+        {
+            #region fields
+            private T _Element;
+            private IEnumerator<T> _EnumerateChildren;
+            private bool _disposed;
+            #endregion fields
+
+            #region ctors
+            /// <summary>
+            /// Class constructor
+            /// </summary>
+            /// <param name="element"></param>
+            /// <param name="enumerateChildren"></param>
+            public VisitElement(T element, IEnumerator<T> enumerateChildren)
+                : this()
+            {
+                _Element = element;
+                _EnumerateChildren = enumerateChildren;
+            }
+
+            /// <summary>
+            /// Hidden class constructor
+            /// </summary>
+            protected VisitElement()
+            {
+            }
+            #endregion ctors
+
+            #region properties
+            /// <summary>
+            /// Gets whether the children of this element have already been visited or not.
+            /// </summary>
+            public bool ChildrenVisited { get; protected set; }
+
+            /// <summary>
+            /// Gets whether this element has already been visited or not.
+            /// </summary>
+            public bool ThisElementVisited { get; protected set; }
+
+            /// <summary>
+            /// Gets the Element for this node or null if this is the root.
+            /// </summary>
+            public T Element { get { return _Element; } }
+            #endregion properties
+
+            #region methods
+            /// <summary>
+            /// Gets the next available child or null (if all children have been enumerated).
+            /// </summary>
+            /// <returns></returns>
+            public T GetNextChild()
+            {
+                if (_EnumerateChildren != null)
+                {
+                    if (_EnumerateChildren.MoveNext())
+                        return _EnumerateChildren.Current;
+                }
+
+                ChildrenVisited = true;
+                return default(T);
+            }
+
+            /// <summary>
+            /// Marks this element as having been visited.
+            /// </summary>
+            public void SetThisElementVisited()
+            {
+                ThisElementVisited = true;
+            }
+
+            #region Disposable Interfaces
+            /// <summary>
+            /// Standard dispose method of the <seealso cref="IDisposable" /> interface.
+            /// </summary>
+            public void Dispose()
+            {
+                Dispose(true);
+            }
+
+            /// <summary>
+            /// Source: http://www.codeproject.com/Articles/15360/Implementing-IDisposable-and-the-Dispose-Pattern-P
+            /// </summary>
+            /// <param name="disposing"></param>
+            protected void Dispose(bool disposing)
+            {
+                if (_disposed == false)
+                {
+                    if (disposing == true)
+                    {
+                        // Dispose of the curently displayed content if it is disposable
+                        if (_EnumerateChildren != null)
+                        {
+                            _EnumerateChildren.Dispose();
+                            _EnumerateChildren = null;
+                        }
+                    }
+
+                    // There are no unmanaged resources to release, but
+                    // if we add them, they need to be released here.
+                }
+
+                _disposed = true;
+
+                //// If it is available, make the call to the
+                //// base class's Dispose(Boolean) method
+                ////base.Dispose(disposing);
+            }
+            #endregion Disposable Interfaces
+            #endregion methods
+        }
+
         private static IEnumerable<T> PostOrderIterator<T>(
               T root
             , Func<T, IEnumerable<T>> children)
         {
-            var toVisit = new Stack<IEnumerator<T>>();
-            var visitedAncestors = new Stack<T>();
+            var toVisit = new Stack<VisitElement<T>>();
 
             try
             {
                 var it = new List<T> { root }.GetEnumerator();
-                toVisit.Push(it);
+                var element = new VisitElement<T>(default(T), it);
+                toVisit.Push(element);
 
                 while (toVisit.Count > 0)
                 {
-                    T current = default(T);
                     var node = toVisit.Peek();
-                    if (node.MoveNext())
-                    {
-                        current = node.Current;
-                    }
-                    else
-                    {
-                        // otherwise, cleanup the empty enumerator and...
-                        node.Dispose();
 
-                        // ...search up the stack for an enumerator with elements left
-                        while (true)
+                    if (node.ChildrenVisited == false)
+                    {
+                        var child = node.GetNextChild();
+                        if (child == null)
                         {
-                            if (toVisit.Count == 0)
+                            // Is this a non-root element?
+                            if (node.Element != null)
                             {
-                                // we didn't find one, so we're all done
-                                yield break;
-                            }
-
-                            // consider the next enumerator on the stack
-                            var topEnumerator = toVisit.Peek();
-                            if (topEnumerator.MoveNext())
-                            {
-                                // if it has an element, use it
-                                current = topEnumerator.Current;
-                                //break;
+                                node.SetThisElementVisited();
+                                yield return node.Element;
                             }
                             else
-                            {
-                                // otherwise discard it
-                                toVisit.Pop().Dispose();
+                                yield break;
 
-                                if (visitedAncestors.Count() > 0)
-                                {
-                                    current = visitedAncestors.Pop();
-                                    yield return current;
-                                }
-                                else
-                                    yield break; // Done Done :-)
-                            }
-                        }
-                    }
-
-                    if (children(current).FirstOrDefault() != null)
-                    {
-                        if (current.Equals(PeekOrDefault1(visitedAncestors)) == false)
-                        {
-                            visitedAncestors.Push(current);
-                            PushNonReverse(toVisit, children(current));
                             continue;
                         }
-
-                        visitedAncestors.Pop();
-                    }
-
-                    //System.Console.WriteLine(node.GetStackPath());     // Process the node
-                    yield return current;
-
-                    //toVisit.Pop();
-                    node = toVisit.Peek();
-                    if (node.MoveNext())
-                    {
-                        current = node.Current;
-                        yield return current;
+                        else
+                        {
+                            // Put this child on the stack and continue to dive down
+                            element = new VisitElement<T>(child, children(child).GetEnumerator());
+                            toVisit.Push(element);
+                            continue;
+                        }
                     }
                     else
                     {
-                        node = toVisit.Pop();
-                        // otherwise, cleanup the empty enumerator and...
-                        node.Dispose();
-
-                        // ...search up the stack for an enumerator with elements left
-                        while (true)
+                        if (node.ThisElementVisited == false)
                         {
-                            if (toVisit.Count == 0)
+                            // Is this a non-root element?
+                            if (node.Element != null)
                             {
-                                // we didn't find one, so we're all done
-                                yield break;
-                            }
-
-                            // consider the next enumerator on the stack
-                            var topEnumerator = toVisit.Peek();
-
-                            current = topEnumerator.Current;
-                            visitedAncestors.Pop();
-                            yield return current;
-
-                            if (topEnumerator.MoveNext())
-                            {
-                                // if it has an element, use it
-                                current = topEnumerator.Current;
-
-                                if (children(current).FirstOrDefault() != null)
-                                {
-                                    if (current.Equals(PeekOrDefault1(visitedAncestors)) == false)
-                                    {
-                                        visitedAncestors.Push(current);
-                                        PushNonReverse(toVisit, children(current));
-                                        break;
-                                    }                                  
-                                }
-
-                                yield return current;
+                                node.SetThisElementVisited();
+                                yield return node.Element;
                             }
                             else
-                            {
-                                // otherwise discard it
-                                toVisit.Pop().Dispose();
-                            }
+                                yield break;
+
+                            continue;
                         }
+                        else               // This node and its children have been visited
+                            toVisit.Pop();
                     }
                 }
             }
@@ -187,19 +238,6 @@
         private static T PeekOrDefault1<T>(Stack<T> s)
         {
             return s.Count == 0 ? default(T) : s.Peek();
-        }
-
-        /// <summary>
-        /// Push all children of a given node in reverse order into the
-        /// <seealso cref="Stack{T}"/> <paramref name="s"/>.
-        /// 
-        /// Use this to traverse the tree from left to right.
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="list"></param>
-        private static void PushReverse<T>(Stack<IEnumerator<T>> s, IEnumerable<T> list)
-        {
-            s.Push(list.ToArray().Reverse().GetEnumerator());
         }
 
         /// <summary>

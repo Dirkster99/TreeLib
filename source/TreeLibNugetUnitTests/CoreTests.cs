@@ -2,6 +2,7 @@
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using TreeLibDemoLib;
     using TreeLibDemoLib.Development;
@@ -93,6 +94,13 @@
             TestTreeTraversal(root);
         }
 
+        [TestMethod]
+        public void TestMethod13()
+        {
+            var root = CoreTests.makeTree13();
+            TestTreeTraversal(root);
+        }
+
         private static void TestTreeTraversal(Node root)
         {
             // Generate version 1 traversals
@@ -108,7 +116,17 @@
             // Generate version 3 traversals
             var levelOrderItems3 = TreeLib.BreadthFirst.Traverse.LevelOrder(root, i => i.Children).ToList();
             var preOrderItems3 = TreeLib.Depthfirst.Traverse.Preorder(root, i => i.Children).ToList();
-            var postOrderItems3 = TreeLib.Depthfirst.Traverse.PostOrder(root, i => i.Children).ToList();
+
+            List<Node> postOrderItems3 = null;
+            try
+            {
+                postOrderItems3 = TreeLib.Depthfirst.Traverse.PostOrder(root, i => i.Children).ToList();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                Console.WriteLine(exc.StackTrace);
+            }
 
             // Order of traversal may be different,
             // in the end, all elements are there (count)
@@ -122,6 +140,26 @@
             Assert.AreEqual(levelOrderItems1.Count, levelOrderItems3.Count);
             Assert.AreEqual(preOrderItems1.Count, preOrderItems3.Count);
             Assert.AreEqual(postOrderItems1.Count, postOrderItems3.Count);
+
+            // Ensure same sequence on each version 1 and 2 returned
+            for (int i = 0; i < levelOrderItems1.Count; i++)
+                Assert.AreEqual(levelOrderItems1[i], levelOrderItems2[i].Item2);
+
+            for (int i = 0; i < preOrderItems1.Count; i++)
+                Assert.AreEqual(preOrderItems1[i], preOrderItems2[i]);
+
+            for (int i = 0; i < postOrderItems1.Count; i++)
+                Assert.AreEqual(postOrderItems1[i], postOrderItems2[i]);
+
+            // Ensure same sequence on each version 1 and 3 returned
+            for (int i = 0; i < levelOrderItems1.Count; i++)
+                Assert.AreEqual(levelOrderItems1[i], levelOrderItems3[i].Node);
+
+            for (int i = 0; i < preOrderItems1.Count; i++)
+                Assert.AreEqual(preOrderItems1[i], preOrderItems3[i]);
+
+            for (int i = 0; i < postOrderItems1.Count; i++)
+                Assert.AreEqual(postOrderItems1[i], postOrderItems3[i]);
 
             // Sort Version 1 by Id and make sure all items are there
             levelOrderItems1.Sort((i1, i2) => i1.Id.CompareTo(i2.Id));
@@ -185,10 +223,18 @@
 
                 Assert.AreEqual(levelOrderItems1[i], levelOrderItems3[i].Node);
                 Assert.AreEqual(preOrderItems1[i], preOrderItems3[i]);
+
+                postOrderItems3.Sort((i1, i2) => i1.Id.CompareTo(i2.Id));
                 Assert.AreEqual(postOrderItems1[i], postOrderItems3[i]);
             }
         }
 
+        /// <summary>
+        /// tree:
+        /// a
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree1(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -201,6 +247,14 @@
             return a;
         }
 
+        /// <summary>
+        /// tree:
+        /// a
+        /// |
+        /// b
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree2(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -216,6 +270,14 @@
             return a;
         }
 
+        /// <summary>
+        /// tree:
+        ///   a
+        ///  / \
+        /// b   c
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree3(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -233,6 +295,14 @@
             return a;
         }
 
+        /// <summary>
+        /// tree:
+        ///    a
+        ///  / | \
+        /// b  c  d
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree4(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -252,6 +322,16 @@
             return a;
         }
 
+        /// <summary>
+        /// tree:
+        ///       a
+        ///     / | \
+        ///    b  c  d
+        ///   /
+        ///  e
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree5(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -273,6 +353,15 @@
             return a;
         }
 
+        /// <summary>
+        ///       a
+        ///     / | \
+        ///    b  c  d
+        ///   / \
+        ///  e   f
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree6(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -295,6 +384,15 @@
             return a;
         }
 
+        /// <summary>
+        ///      a
+        ///    / | \
+        ///   b  c  d
+        ///  /|\
+        /// e f x
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree7(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -318,6 +416,15 @@
             return a;
         }
 
+        /// <summary>
+        ///      a
+        ///    /  \ \
+        ///   b    c d
+        ///  /|\ \
+        /// e f x y
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree8(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -342,6 +449,15 @@
             return a;
         }
 
+        /// <summary>
+        ///         a
+        ///       /   \ \
+        ///      b     c d
+        ///   / /|\ \
+        ///  e f x y z
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree9(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -367,6 +483,15 @@
             return a;
         }
 
+        /// <summary>
+        ///         a
+        ///       /   \  \
+        ///      b     c  d
+        ///   / /|\ \   \
+        ///  e f x y z   g
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree10(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -394,6 +519,15 @@
             return a;
         }
 
+        /// <summary>
+        ///             a
+        ///       /     | \
+        ///      b      c  d
+        ///   / /|\ \   |  |
+        ///  e f x y z  g  h
+        /// </summary>
+        /// <param name="isampleNumber"></param>
+        /// <returns></returns>
         private static Node makeTree11(int isampleNumber = 0)
         {
             string SampleIndicator = string.Empty;
@@ -427,13 +561,11 @@
         /// Returns a simple tree of <seealso cref="Nodes"/> to work
         /// with the demo code in this application.
         /// 
-        ///        a
-        ///      /  |  \
-        ///    b    c    d
-        ///   /|\    \    \ \
-        ///  e,f,xyz  g    h i
-        /// 
-        ///  dfs: efbgchida
+        ///             a
+        ///       /     | \
+        ///      b      c  d
+        ///   / /|\ \   |  |\
+        ///  e f x y z  g  h i
         /// </summary>
         /// <returns></returns>
         private static Node makeTree12(int isampleNumber = 0)
@@ -465,5 +597,36 @@
 
             return a;
         }
+
+        /// <summary>
+        /// Returns a simple tree of <seealso cref="Nodes"/> to work
+        /// with the demo code in this application.
+        /// 
+        /// a
+        /// |
+        /// b
+        /// |
+        /// c
+        /// |
+        /// d
+        /// (degenerated list)
+        /// </summary>
+        /// <returns></returns>
+        private static Node makeTree13(int isampleNumber = 0)
+        {
+            string SampleIndicator = string.Empty;
+
+            if (isampleNumber > 0)
+                SampleIndicator = isampleNumber.ToString();
+
+            var a = new Node(null, string.Format("a{0}", SampleIndicator));
+
+            var b = new Node(a, string.Format("b{0}", SampleIndicator));
+            var c = new Node(b, string.Format("c{0}", SampleIndicator));
+            var d = new Node(c, string.Format("d{0}", SampleIndicator));
+
+            return a;
+        }
+
     }
 }
