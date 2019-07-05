@@ -3,7 +3,7 @@
   <PropertyGroup>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>Dirkster.TreeLib</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
     <Authors>Dirk Bahle</Authors>
